@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang=it>
+	<head>
+		<title>The Moon - Dashboard</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/common.css" defer>
+		<link rel="stylesheet" href="css/dashboard.css" defer>
+		<link rel="stylesheet" href="fonts/open-iconic.css" defer>
+		<script src="js/dashboard.js" defer></script>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<a class="btn" href="#calendar"><span class="oi" data-glyph="calendar" title="calendar" aria-hidden="true"></span>Calendario</a>
+				<a class="btn" href="#settings"><span class="oi" data-glyph="cog" title="cog" aria-hidden="true"></span>Impostazioni</a>
+				<a class="btn" href="#search"><span class="oi" data-glyph="magnifying-glass" title="magnifying glass" aria-hidden="true"></span>Ricerca</a>
+				<a id="exit" class="btn" href="#"><span class="oi" data-glyph="account-logout" title="account logout" aria-hidden="true"></span>Esci</a>
+			</nav>
+		</header>
+		<noscript>
+			<center><h2>Si prega di consentire l'utilizzo di JavaScript nel browser.</h2></center>
+		</noscript>
+		<main>
+			<section id="calendar">
+				<div id="month-selector">
+					<button class="btn" id="previous-month">&lt;</button>
+					<span id="current-month">xxxxxx - 20xx</span>
+					<button class="btn" id="next-month">&gt;</button>
+				</div>
+				<div class="month-calendar-weekdays landscape">
+					<span>LUN</span>
+					<span>MAR</span>
+					<span>MER</span>
+					<span>GIO</span>
+					<span>VEN</span>
+					<span>SAB</span>
+					<span>DOM</span>
+				</div>
+				<div class="month-calendar-weekdays portrait">
+					<span>L</span>
+					<span>M</span>
+					<span>M</span>
+					<span>G</span>
+					<span>V</span>
+					<span>S</span>
+					<span>D</span>
+				</div>
+				<div id="month-calendar">
+				</div>
+			</section>
+			<section id="day-view">
+				<aside>
+					<div>
+						<div id="day-view-title">
+							<label id="day-view-day">31</label>
+							<label id="day-view-month">Agosto</label>
+						</div>
+						<div class="template" id="day-view-order">
+							<div class="order">
+								<label class="at"><span class="oi" data-glyph="clock" title="clock" aria-hidden="true"></span> {{ time }}</label>
+								<label class="amount"><span class="oi" data-glyph="people" title="people" aria-hidden="true"></span> {{ amount }}</label>
+								<label class="status">{{ status }}</label>
+								<input type="hidden" value="{{ id }}">
+								<a class="btn btn-large" href="#order-view"><span class="oi" data-glyph="chevron-right" title="chevron right" aria-hidden="true"></span></a>
+							</div>
+						</div>
+						<div id="day-view-orders">
+							
+						</div>
+					</div>
+				</aside>
+			</section>
+			<section id="search">
+				
+			</section>
+		</main>
+	</body>
+</html>

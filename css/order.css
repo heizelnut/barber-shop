@@ -1,0 +1,63 @@
+form {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	max-width: 780px;
+	padding: 1em;
+}
+
+form div * {
+	display: block;
+	font-size: 1.1rem;
+}
+
+form div *.insert {
+	width: 100%;
+	padding: 1em;
+	margin: 1em 0em;
+	border: 0.2em solid var(--active);
+	border-radius: 0.2em;
+	outline: none;
+}
+
+form div *.insert:focus { border-color: var(--accent) !important; }
+
+form div {
+	display: inline-block;
+	margin: 1em;
+}
+
+a.home { margin: 0 auto; }
+
+@media screen and (max-width: 675px) {
+	form {
+		grid-template-columns: 1fr;
+	}
+
+	main {
+		text-align: center;
+	}
+	
+	input#send {
+		width: 100% !important;
+		margin: 0em;
+	}
+}
+
+input#send {
+	padding: 1em;
+	width: 10em;
+}
+
+input.error { border-color: var(--red) !important; }
+
+div#success { background-color: var(--relaxed); }
+
+div#error, div#malformed { background-color: var(--red); }
+
+div:target { display: block !important; }
+div#success, div#error, div#malformed {
+	display: none;
+	padding: 0.5em 2em;
+	color: var(--white);
+	font-size: 1em;
+}

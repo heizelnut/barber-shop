@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang=it>
+	<head>
+		<title>Prenota</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/common.css" defer>
+		<link rel="stylesheet" href="css/order.css" defer>
+	</head>
+	<body>
+		<header>
+			<a href="/" class=home>Logo</a>
+		</header>
+		<main>
+			<div id="success">
+				<span class="msg">Controlla la tua email.</span>
+			</div>
+			<div id="error">
+				<span class="msg">Errore nella applicazione. Si prega di riprovare più tardi.</span>
+			</div>
+			<div id="malformed">
+				<span class="msg">I dati inseriti non sono validi.</span>
+			</div>
+			<form method="POST" action="/api/public">
+				<div>
+					<label for="name">Nome *</label>
+					<input name="name" class="insert" type="text" required id="name" placeholder="Pippo Baudo">
+				</div>
+				<div>
+					<label for="amount">Numero di persone *</label>
+					<input name="amount" class="insert" type="number" min=1 max=20 required id="amount" placeholder=2>
+				</div>
+				<div>
+					<label for="when">Data e ora *</label>
+					<input name="at" class="insert" type="datetime-local" min="now" required id="when">
+				</div>
+				<div>
+					<label for="phone">Numero di telefono *</label>
+					<input name="phone" class="insert" type="tel" required id="phone" placeholder="+39 123 456 7890">
+				</div>
+				<div>
+					<label for="email">Email</label>
+					<input name="email" class="insert" type="email" id="email" placeholder="superpippo@example.com">
+				</div>
+				<div>
+					<label for="notes">Note aggiuntive</label>
+					<textarea name="notes" class="insert" id="notes" placeholder="Allergie, celiaci, varie ed eventuali"></textarea>
+				</div>
+				<div>
+					<input type="submit" class="btn" id="send" value="PRENOTA">
+				</div>
+			</form>
+		</main>
+	</body>
+</html>

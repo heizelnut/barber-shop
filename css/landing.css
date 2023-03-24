@@ -1,0 +1,132 @@
+main {
+	background: url("https://source.unsplash.com/random?pub,beer") no-repeat center center fixed;
+	background-size: cover;
+}
+
+main h1 {
+	padding-left: 0.5em;
+	font-size: 3.6em;
+	font-style: italic;
+	font-family: "ReemKufi";
+	line-height: 1.8em;
+	color: var(--white);
+	text-shadow: -0.1em 0.1em var(--black), 0em 0em 0.1em var(--black);
+	width: 50%;
+	margin: 0 0;
+}
+
+section {
+	padding: 5em;
+	box-shadow: -1em 0em 1em var(--black);
+}
+
+div#postit-parent {
+	margin-right: 6em;
+	margin-bottom: 1em;
+	margin-top: -15em;
+	float: right;
+	z-index: 0;
+}
+
+div#postit {
+	display: inline-block;
+	background-color: var(--accent);
+	color: var(--black);
+	text-transform: uppercase;
+	transform: rotate(-6deg);
+	padding: 0.5em;
+	font-size: 4em;
+	font-weight: bold;
+	font-family: "ReemKufi";
+	max-width: 6em;
+	max-height: 4em;
+	box-shadow: -0.3em 0.3em var(--black);
+
+	z-index: 2;
+	animation-name: post-it;
+	animation-direction: alternate;
+	animation-iteration-count: infinite;
+	animation-duration: 600ms;
+}
+
+div#postit:hover {
+	animation-duration: 200ms;
+}
+
+div#circle {
+	display: block;
+	border-radius: 100%;
+	background-color: var(--accent);
+	transition: all 600ms ease-out;
+	width: 2em;
+	height: 2em;
+	margin-top: -8em;
+	margin-left: 8em;
+	z-index: 1;
+}
+
+div#circle.big {
+	transform: scale(100);
+	z-index: 1;
+}
+
+@media screen and (max-width: 900px) {
+	div#postit-parent {
+		margin-top: 0em;
+		margin-right: 2em;
+	}
+}
+
+@media screen and (max-width: 720px) {
+	div#postit {
+		font-size: 3em;
+	}
+
+	div#postit-parent {
+		text-align: center;
+		margin: 0em;
+		float: none;
+	}
+
+	div#circle {
+		margin: -3em auto 0 auto;
+	}
+}
+
+@keyframes moon-glow {
+	from {
+		text-shadow: -0.1em 0.1em var(--black),
+			0em 0em 0.1em var(--black),
+			0em 0em 0.6em var(--white);
+	}
+	to {
+		text-shadow: -0.1em 0.1em var(--black),
+			0em 0em 0.1em var(--black),
+			0em 0em 0.6em transparent;
+	}
+}
+
+@keyframes post-it {
+	from {
+		box-shadow: -0.3em 0.3em var(--black);
+	}
+	to {
+		box-shadow: -0.2em 0.2em var(--black);
+	}
+}
+
+span#moon {
+	color: var(--accent);
+	font-family: inherit;
+	animation-name: moon-glow;
+	animation-direction: alternate;
+	animation-iteration-count: infinite;
+	animation-duration: 1200ms;
+}
+
+@media screen and (max-width: 640px) {
+	section {
+		padding: 1.2em;
+		padding-top: 2em;
+	}
+}

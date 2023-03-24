@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang=it>
+	<head>
+		<title>Accesso</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/common.css" defer>
+		<script src="js/login.js" defer></script>
+	</head>
+	<body>
+		<header>
+			<img width=512 src="img/logo.svg" alt="logo" class="logo-medium">
+			<noscript>Abilita Javascript.</noscript>
+		</header>
+		<main>
+			<form>
+				<input id="username" class="insert" type="text" placeholder="Username">
+				<input id="password" class="insert" type="password" placeholder="Password">
+				<input id="login" class="btn" type="submit" value="entra">
+			</form>
+		</main>
+		<style>
+			main {
+				display: grid;
+				place-items: center;
+			}
+
+			form {
+				width: 90%;
+				max-width: 30em;
+			}
+
+			form * {
+				display: block;
+				padding: 0.5em 0.5em;
+				width: 100%;
+				margin: 1em auto !important;
+				outline-color: var(--accent);
+				border-radius: 0.3em !important;
+				border: none;
+			}
+
+			img { margin: 0 auto; }
+		</style>
+	</body>
+</html>
