@@ -14,11 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		exit;
 	}
 
-	if (isset($_SESSION['user'])) {
-		return_json(201, array("description" => "reusing existing session"));
-		exit;
-	}
-
 	if ($json['user'] == 'barack' and $json['password'] == 'piccina91') {
 		$_SESSION['user'] = $json['user'];
 		$_SESSION['time'] = time();
