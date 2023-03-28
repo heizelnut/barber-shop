@@ -1,3 +1,10 @@
+TODO:
+[x] session
+[ ] booking
+[ ] user
+[ ] config
+[ ] service
+
 GET /api/booking -> ottieni una/le prenotazioni (+ auth)
 POST /api/booking -> crea una prenotazione
 PUT /api/booking -> aggiorna una prenotazione (+ auth)
