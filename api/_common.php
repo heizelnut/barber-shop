@@ -14,4 +14,11 @@ function return_error($code, $msg) {
 	return_json($code, $res);
 }
 
+try {
+	$pdo = new PDO("mysql:host=localhost;dbname=barber;", "root", "");
+} catch (PDOException $e) {
+	echo "Error: cannot connect to DB.";
+	echo "<div class=error>" . $e->getMessage() . "</div>";
+}
+
 ?>
