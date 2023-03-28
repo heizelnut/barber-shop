@@ -1,0 +1,14 @@
+# disable directory listing
+Options -Indexes
+
+# turn on url rewriting 
+RewriteEngine on
+
+# do not serve files starting with _
+RewriteRule (^_) - [F]
+
+# remove the need for .php extention 
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME}\.php -f 
+RewriteRule ^(.*)$ $1.php
+
