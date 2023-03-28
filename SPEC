@@ -1,28 +1,27 @@
 TODO:
-[x] session
-[ ] booking
-[ ] user
-[ ] config
-[ ] service
+[x] /api/session
+[x] /api/user
+[ ] /api/booking
+[ ] /api/config
+[ ] /api/service
 
-GET /api/booking -> ottieni una/le prenotazioni (+ auth)
-POST /api/booking -> crea una prenotazione
-PUT /api/booking -> aggiorna una prenotazione (+ auth)
-DELETE /api/booking -> cancella una prenotazione (+ auth)
+[ ] GET /api/booking -> ottieni una/le prenotazioni (+ auth)
+[ ] POST /api/booking -> crea una prenotazione
+[ ] PUT /api/booking -> aggiorna una prenotazione (+ auth)
+[ ] DELETE /api/booking -> cancella una prenotazione (+ auth)
 
-GET /api/service -> ottieni tutti i servizi disponibili
-POST /api/service -> aggiungi un nuovo servizio disponibile (+ auth)
-PUT /api/service -> modifica un servizio disponibile (+ auth)
-DELETE /api/service -> cancella un servizio disponibile (+ auth)
+[ ] GET /api/service -> ottieni tutti i servizi disponibili
+[ ] POST /api/service -> aggiungi un nuovo servizio disponibile (+ auth)
+[ ] PUT /api/service -> modifica un servizio disponibile (+ auth)
+[ ] DELETE /api/service -> cancella un servizio disponibile (+ auth)
 
-GET /api/config -> ottieni la configurazione (+ auth)
-PUT /api/config -> aggiorna la configurazione (+ auth)
+[ ] GET /api/config -> ottieni la configurazione (+ auth)
+[ ] PUT /api/config -> aggiorna la configurazione (+ auth)
 
-POST /api/user -> crea utente
-PUT /api/user -> aggiorna dati utente (+ auth)
-DELETE /api/user -> cancella utente
+[x] POST /api/user -> crea utente
+[x] PUT /api/user -> aggiorna dati utente (+ auth)
+[x] DELETE /api/user -> cancella utente (+ auth)
 
-POST /api/session -> autentica l'utente nella sessione
-GET /api/session -> ottieni dati sulla sessione corrente
-DELETE /api/session -> effettua il logout (+ auth)
-
+[x] POST /api/session -> autentica l'utente nella sessione
+[x] GET /api/session -> ottieni dati sulla sessione corrente
+[x] DELETE /api/session -> effettua il logout (+ auth)
