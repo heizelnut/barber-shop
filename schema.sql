@@ -1,0 +1,48 @@
+CREATE TABLE users (
+	id INT(4) PRIMARY KEY AUTO_INCREMENT,
+	username VARCHAR(50) NOT NULL,
+	password VARCHAR(150) NOT NULL,
+	location VARCHAR(40) NOT NULL,
+	rank INT(1) NOT NULL
+);
+
+CREATE TABLE bookings (
+	id INT(4) PRIMARY KEY AUTO_INCREMENT,
+	creation DATETIME NOT NULL,
+	accepted DATETIME,
+	discount FLOAT,
+	reference_url VARCHAR(256),
+	booktime DATETIME NOT NULL,
+	description VARCHAR(500),
+	barber_id INT(4),
+	FOREIGN KEY (barber_id) REFERENCES users(id)
+		ON UPDATE CASCADE
+		ON DELETE CASCADE,
+	booker_id INT(4),
+	FOREIGN KEY (booker_id) REFERENCES users(id)
+		ON UPDATE CASCADE
+		ON DELETE CASCADE
+);
+
+CREATE TABLE services (
+	id INT(4) PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(30) NOT NULL,
+	price FLOAT NOT NULL,
+	image_url VARCHAR(256) NOT NULL,
+	description VARCHAR(150)
+);
+
+CREATE TABLE wants (
+	booking_id INT(4) NOT NULL,
+	FOREIGN KEY (booking_id) REFERENCES bookings(id)
+		ON UPDATE CASCADE
+		ON DELETE CASCADE,
+	service_id INT(4) NOT NULL,
+	FOREIGN KEY (service_id) REFERENCES services(id)
+		ON UPDATE CASCADE
+		ON DELETE CASCADE
+);
+
+CREATE TABLE config (
+	shop_name VARCHAR(50) NOT NULL
+);
