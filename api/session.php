@@ -9,18 +9,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		return_error(400, "bad request");
 		exit;
 	}
-	if (!isset($json['user']) or !isset($json['password'])) {
+	if (!isset($json['username']) or !isset($json['password'])) {
 		return_error(400, "bad request");
 		exit;
 	}
 
-	if ($json['user'] == 'barack' and $json['password'] == 'piccina91') {
-		$_SESSION['user'] = $json['user'];
+	$stm = $pdo->prepare("SELECT id, password FROM users WHERE username = :username");
+	$stm->bindParam(':username', $json['username'], PDO::PARAM_STR);
+	if (!$stm->execute()) {
+		return_error(503, "db error");
+		exit;
+	}
+
+	$userRow = $stm->fetch(PDO::FETCH_ASSOC);
+	
+	$successLogin = false;
+	if ($stm->rowCount() == 1) {
+		$successLogin = password_verify($json['password'], $userRow['password']);
+	}
+	if ($successLogin) {
+		$_SESSION['user'] = $userRow['id'];
 		$_SESSION['time'] = time();
 		return_json(200, array("description" => "session created"));
-	} else {
-		return_error(403, "forbidden");
+		exit;
 	}
+
+	return_error(403, "wrong credentials");
 	exit;
 }
 
@@ -36,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 	if (isset($_SESSION['user'])) {
-		return_json(200, array("user" => $_SESSION['user'], "creation" => $_SESSION['time']));
+		return_json(200, array("user_id" => $_SESSION['user'], "creation_time" => $_SESSION['time']));
 	} else {
 		return_error(403, "forbidden");
 	}
