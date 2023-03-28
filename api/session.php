@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 	if ($json['user'] == 'barack' and $json['password'] == 'piccina91') {
 		$_SESSION['user'] = $json['user'];
+		$_SESSION['time'] = time();
 		return_json(200, array("description" => "session created"));
 	} else {
 		return_error(403, "forbidden");
@@ -34,6 +35,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
 		return_json(200, array("description" => "logged out"));
 	} else {
 		return_json(201, array("description" => "already logged out"));
+	}
+	exit;
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+	if (isset($_SESSION['user'])) {
+		return_json(200, array("user" => $_SESSION['user'], "creation" => $_SESSION['time']));
+	} else {
+		return_error(403, "forbidden");
 	}
 	exit;
 }
