@@ -8,16 +8,12 @@ CREATE TABLE users (
 
 CREATE TABLE bookings (
 	id INT(4) PRIMARY KEY AUTO_INCREMENT,
-	creation DATETIME NOT NULL,
+	creation DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	accepted DATETIME,
 	discount FLOAT,
 	reference_url VARCHAR(256),
 	booktime DATETIME NOT NULL,
 	description VARCHAR(500),
-	barber_id INT(4),
-	FOREIGN KEY (barber_id) REFERENCES users(id)
-		ON UPDATE CASCADE
-		ON DELETE CASCADE,
 	booker_id INT(4),
 	FOREIGN KEY (booker_id) REFERENCES users(id)
 		ON UPDATE CASCADE

@@ -17,15 +17,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	}
 
 	$stm = $pdo->prepare("INSERT INTO users (username, password, location, rank) VALUES (:u, :p, :l, :r)");
-	$stm->bindparam(':u', $u, PDO::PARAM_STR);
-	$stm->bindparam(':p', $p, PDO::PARAM_STR);
-	$stm->bindparam(':l', $l, PDO::PARAM_STR);
-	$stm->bindparam(':r', $r, PDO::PARAM_INT);
-
 	$u = $json['username'];
 	$p = password_hash($json['password'], PASSWORD_DEFAULT);
 	$l = $json['location'];
 	$r = 2; // hardcoded for now
+
+	$stm->bindParam(':u', $u, PDO::PARAM_STR);
+	$stm->bindParam(':p', $p, PDO::PARAM_STR);
+	$stm->bindParam(':l', $l, PDO::PARAM_STR);
+	$stm->bindParam(':r', $r, PDO::PARAM_INT);
 
 	if ($stm->execute()) {
 		// $_SESSION['user'] = $pdo->lastInsertId();
