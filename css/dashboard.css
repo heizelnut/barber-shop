@@ -228,6 +228,7 @@ a.btn-large:hover {
 	transform: scale(1.1);
 	color: var(--glass);
 	background-color: var(--relaxed);
+	cursor: pointer;
 }
 
 a.btn-large:active {

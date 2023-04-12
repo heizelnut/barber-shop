@@ -1,11 +1,12 @@
 :root {
-	--accent: #ffee3c;
+	--accent: #4499d1;
 	--white: #fefefe;
 	--relaxed: #2e2e2e;
 	--hovered: #e0e0e0;
 	--glass: #dbdbdb;
 	--active: #5e5e5e;
 	--black: #131313;
+	--whitesmoke: whitesmoke;
 
 	--red: #ff3d40;
 	--blue: #3982ef;
@@ -56,7 +57,7 @@ img.logo-medium {
 	transition: all 80ms ease-in-out;
 }
 
-.btn:hover { background-color: var(--active); }
+.btn:hover { background-color: var(--active); cursor: pointer; }
 
 .btn:active {
 	background-color: var(--accent);

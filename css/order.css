@@ -17,9 +17,13 @@ form div *.insert {
 	border: 0.2em solid var(--active);
 	border-radius: 0.2em;
 	outline: none;
+	transition: all 0.2s ease;
 }
-
-form div *.insert:focus { border-color: var(--accent) !important; }
+form div *.insert:hover { background-color: var(--whitesmoke) !important; }
+form div *.insert:focus {
+	border-color: var(--accent) !important;
+	background-color: var(--whitesmoke) !important;
+}
 
 form div {
 	display: inline-block;
